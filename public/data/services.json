@@ -1,0 +1,76 @@
+[
+  {
+    "id": "S-3001",
+    "title": "Full Grooming",
+    "duration": "2–3 hours",
+    "bands": [
+      {"label": "Up to 10 kg", "price": 45},
+      {"label": "11–25 kg", "price": 55},
+      {"label": "26–40 kg", "price": 70}
+    ]
+  },
+  {
+    "id": "S-3002",
+    "title": "Bath & Brush",
+    "duration": "1–1.5 hours",
+    "bands": [
+      {"label": "Up to 10 kg", "price": 25},
+      {"label": "11–25 kg", "price": 35},
+      {"label": "26–40 kg", "price": 45}
+    ]
+  },
+  {
+    "id": "S-3003",
+    "title": "Nail Care",
+    "duration": "30 minutes",
+    "bands": [
+      {"label": "All sizes", "price": 15}
+    ]
+  },
+  {
+    "id": "S-3004",
+    "title": "Deluxe Spa",
+    "duration": "3–4 hours",
+    "bands": [
+      {"label": "Up to 25 kg", "price": 75},
+      {"label": "26–40 kg", "price": 95}
+    ]
+  },
+  {
+    "id": "S-3005",
+    "title": "Flea & Tick Treatment",
+    "duration": "~1 hour",
+    "bands": [
+      {"label": "Up to 25 kg", "price": 30},
+      {"label": "26–40 kg", "price": 40}
+    ]
+  },
+  {
+    "id": "S-3006",
+    "title": "Express Grooming",
+    "duration": "~1 hour",
+    "bands": [
+      {"label": "Up to 10 kg", "price": 35},
+      {"label": "11–25 kg", "price": 45}
+    ]
+  },
+  {
+    "id": "S-3007",
+    "title": "Teeth Cleaning",
+    "duration": "~30 minutes",
+    "bands": [
+      {"label": "All sizes", "price": 20}
+    ]
+  },
+  {
+    "id": "S-3008",
+    "title": "De‑shedding Treatment",
+    "duration": "45–60 minutes",
+    "bands": [
+      {"label": "Up to 10 kg", "price": 20},
+      {"label": "11–25 kg", "price": 30},
+      {"label": "26–40 kg", "price": 40}
+    ]
+  }
+]
+

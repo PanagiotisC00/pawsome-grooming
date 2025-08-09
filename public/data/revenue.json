@@ -1,0 +1,13 @@
+{
+  "totals": {
+    "month": 3245,
+    "lastMonth": 2980
+  },
+  "series": [
+    {"label": "Week 1", "value": 720},
+    {"label": "Week 2", "value": 810},
+    {"label": "Week 3", "value": 860},
+    {"label": "Week 4", "value": 855}
+  ]
+}
+

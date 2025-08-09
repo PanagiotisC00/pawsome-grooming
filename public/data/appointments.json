@@ -1,0 +1,73 @@
+[
+  {
+    "id": "A-1001",
+    "date": "2025-08-09",
+    "time": "09:00",
+    "client": "Sarah Johnson",
+    "phone": "+357 22 111111",
+    "email": "sarah@example.com",
+    "pet": "Max",
+    "species": "Dog",
+    "breed": "Golden Retriever",
+    "services": ["Full Grooming", "Nail Care"],
+    "status": "confirmed",
+    "total": 65
+  },
+  {
+    "id": "A-1002",
+    "date": "2025-08-09",
+    "time": "10:30",
+    "client": "Mike Chen",
+    "phone": "+357 22 222222",
+    "email": "mike@example.com",
+    "pet": "Luna",
+    "species": "Cat",
+    "breed": "Persian",
+    "services": ["Bath & Brush", "De-shedding Treatment"],
+    "status": "pending",
+    "total": 45
+  },
+  {
+    "id": "A-1003",
+    "date": "2025-08-09",
+    "time": "12:00",
+    "client": "Emily Davis",
+    "phone": "+357 22 333333",
+    "email": "emily@example.com",
+    "pet": "Buddy",
+    "species": "Dog",
+    "breed": "Poodle",
+    "services": ["Full Grooming", "Teeth Cleaning"],
+    "status": "confirmed",
+    "total": 75
+  },
+  {
+    "id": "A-1004",
+    "date": "2025-08-09",
+    "time": "13:30",
+    "client": "John Smith",
+    "phone": "+357 22 444444",
+    "email": "john@example.com",
+    "pet": "Bella",
+    "species": "Dog",
+    "breed": "Samoyed",
+    "services": ["Deluxe Spa"],
+    "status": "completed",
+    "total": 95
+  },
+  {
+    "id": "A-1005",
+    "date": "2025-08-10",
+    "time": "09:30",
+    "client": "Lisa Brown",
+    "phone": "+357 22 555555",
+    "email": "lisa@example.com",
+    "pet": "Charlie",
+    "species": "Dog",
+    "breed": "Beagle",
+    "services": ["Flea & Tick Treatment"],
+    "status": "cancelled",
+    "total": 30
+  }
+]
+

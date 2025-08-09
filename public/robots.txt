@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /dashboard/
+Sitemap: https://www.pawsomegrooming.cy/sitemap.xml
+

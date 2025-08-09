@@ -1,0 +1,470 @@
+{
+  "navigation": {
+    "home": "Home",
+    "services": "Services",
+    "gallery": "Gallery",
+    "booking": "Booking",
+    "contact": "Contact",
+    "bookNow": "Book Now",
+    "toggleMenu": "Toggle menu",
+    "dashboard": "Dashboard"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back! Here's what's happening at your grooming salon today.",
+    "metrics": {
+      "todayAppointments": "Today's Appointments",
+      "todayRevenue": "Today's Revenue",
+      "availableSlots": "Available Slots",
+      "activeClients": "Active Clients"
+    },
+    "appointments": {
+      "title": "Today's Appointments",
+      "description": "Manage your scheduled appointments for today",
+      "viewDetails": "View Details",
+      "editAppointment": "Edit Appointment",
+      "addService": "Add Service",
+      "status": {
+        "confirmed": "Confirmed",
+        "pending": "Pending",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+      }
+    },
+    "timeSlots": {
+      "title": "Available Time Slots",
+      "description": "Today's availability for new appointments",
+      "bookNew": "Book New Appointment"
+    },
+    "revenue": {
+      "title": "Revenue Overview",
+      "description": "Track your business performance over time",
+      "totalRevenue": "Total Revenue",
+      "totalAppointments": "Appointments",
+      "averagePerService": "Avg. per Service"
+    },
+    "quickActions": {
+      "title": "Quick Actions",
+      "description": "Common tasks and shortcuts",
+      "addExtraService": "Add Extra Service",
+      "uploadPhotos": "Upload Pet Photos",
+      "viewClients": "View All Clients",
+      "generateReport": "Generate Report"
+    },
+    "photos": {
+      "title": "Recent Grooming Photos",
+      "description": "Latest before & after transformations",
+      "viewAll": "View All Photos"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "next": "Next",
+    "previous": "Previous",
+    "required": "Required",
+    "optional": "Optional",
+    "search": "Search",
+    "filter": "Filter",
+    "viewDetails": "View Details",
+    "saveChanges": "Save Changes"
+  },
+  "homepage": {
+    "hero": {
+      "badge": "Professional Pet Grooming",
+      "title": "Your Pet Deserves the",
+      "titleHighlight": "Best Care",
+      "description": "Professional grooming services that keep your furry friends looking and feeling their absolute best. Book your appointment today!",
+      "bookAppointment": "Book Appointment",
+      "viewServices": "View Services",
+      "licensedInsured": "Licensed & Insured",
+      "experience": "5+ Years Experience"
+    },
+    "services": {
+      "badge": "Our Services",
+      "title": "Premium Grooming Services",
+      "description": "We offer a complete range of grooming services to keep your pets healthy, happy, and looking their best.",
+      "fullGrooming": {
+        "title": "Full Grooming",
+        "description": "Complete grooming package including bath, cut, nail trim, and ear cleaning",
+        "price": "From €45",
+        "features": ["Professional cut", "Nail trimming", "Ear cleaning", "Teeth brushing"]
+      },
+      "bathBrush": {
+        "title": "Bath & Brush",
+        "description": "Relaxing bath with premium shampoo and thorough brushing",
+        "price": "From €25",
+        "features": ["Premium shampoo", "Conditioning", "Blow dry", "Brushing"]
+      },
+      "nailCare": {
+        "title": "Nail Care",
+        "description": "Professional nail trimming and paw care",
+        "price": "From €15",
+        "features": ["Nail trimming", "Paw massage", "Nail filing", "Paw moisturizing"]
+      },
+      "viewAllServices": "View All Services"
+    },
+    "whyChooseUs": {
+      "badge": "Why Choose Us",
+      "title": "Trusted by Pet Owners",
+      "lovingCare": {
+        "title": "Loving Care",
+        "description": "We treat every pet with the love and attention they deserve, ensuring a stress-free experience."
+      },
+      "safeClean": {
+        "title": "Safe & Clean",
+        "description": "Our facility maintains the highest standards of cleanliness and safety for your pet's wellbeing."
+      },
+      "flexibleScheduling": {
+        "title": "Flexible Scheduling",
+        "description": "Convenient appointment times that work with your schedule, including weekend availability."
+      }
+    },
+    "testimonials": {
+      "badge": "Testimonials",
+      "title": "What Pet Parents Say",
+      "reviews": [
+        {
+          "name": "Sarah Johnson",
+          "pet": "Golden Retriever - Max",
+          "comment": "Amazing service! Max looks and feels fantastic after every visit. The staff is so caring and professional."
+        },
+        {
+          "name": "Mike Chen",
+          "pet": "Persian Cat - Luna",
+          "comment": "Luna used to hate grooming, but the team here made her feel comfortable. Highly recommend!"
+        },
+        {
+          "name": "Emily Davis",
+          "pet": "Poodle - Buddy",
+          "comment": "Exceptional attention to detail. Buddy always comes home looking like a show dog!"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Pamper Your Pet?",
+      "description": "Book your appointment today and give your furry friend the professional care they deserve.",
+      "bookNow": "Book Now",
+      "contactUs": "Contact Us"
+    }
+  },
+  "gallery": {
+    "badge": "Our Work",
+    "title": "Gallery of Happy Pets",
+    "description": "See the amazing transformations and happy faces of our furry clients. Every pet leaves looking and feeling their absolute best!",
+    "pets": [
+      {
+        "title": "Golden Retriever - Max",
+        "description": "Full grooming service"
+      },
+      {
+        "title": "Poodle - Bella",
+        "description": "Professional cut & style"
+      },
+      {
+        "title": "Persian Cat - Luna",
+        "description": "Bath & brush service"
+      },
+      {
+        "title": "Labrador - Rocky",
+        "description": "Full grooming package"
+      },
+      {
+        "title": "Yorkshire Terrier - Milo",
+        "description": "Deluxe grooming service"
+      },
+      {
+        "title": "Maine Coon - Shadow",
+        "description": "Long hair specialist care"
+      },
+      {
+        "title": "Beagle - Charlie",
+        "description": "Bath & nail trim"
+      },
+      {
+        "title": "Siamese Cat - Princess",
+        "description": "Premium grooming service"
+      },
+      {
+        "title": "German Shepherd - Rex",
+        "description": "Large breed grooming"
+      }
+    ],
+    "cta": {
+      "title": "Love What You See?",
+      "description": "Book an appointment today and let us pamper your pet with the same care and attention."
+    }
+  },
+  "booking": {
+    "badge": "Book Appointment",
+    "title": "Schedule Your Pet's Grooming",
+    "description": "Fill out the form below to book an appointment for your furry friend. We'll contact you to confirm the details.",
+    "form": {
+      "title": "Booking Information",
+      "description": "Please provide your details and select the services you'd like for your pet.",
+      "ownerInfo": "Owner Information",
+      "yourName": "Your Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "petInfo": "Pet Information",
+      "petName": "Pet Name",
+      "petType": "Pet Type",
+      "selectPetType": "Select pet type",
+      "dog": "Dog",
+      "cat": "Cat",
+      "other": "Other",
+      "breed": "Breed",
+      "age": "Age",
+      "selectServices": "Select Services",
+      "dateTime": "Preferred Date & Time",
+      "preferredDate": "Preferred Date",
+      "preferredTime": "Preferred Time",
+      "selectTime": "Select time",
+      "additionalNotes": "Additional Notes",
+      "notesPlaceholder": "Any special requests or information about your pet...",
+      "submitBooking": "Submit Booking Request"
+    },
+    "services": [
+      {
+        "id": "full-grooming",
+        "name": "Full Grooming",
+        "price": 45
+      },
+      {
+        "id": "bath-brush",
+        "name": "Bath & Brush",
+        "price": 25
+      },
+      {
+        "id": "nail-care",
+        "name": "Nail Care",
+        "price": 15
+      },
+      {
+        "id": "teeth-cleaning",
+        "name": "Teeth Cleaning",
+        "price": 20
+      },
+      {
+        "id": "flea-treatment",
+        "name": "Flea Treatment",
+        "price": 30
+      }
+    ],
+    "timeSlots": ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"],
+    "summary": {
+      "title": "Booking Summary",
+      "noServices": "No services selected",
+      "total": "Total"
+    },
+    "help": {
+      "title": "Need Help?",
+      "callUs": "Call Us",
+      "emailUs": "Email Us",
+      "businessHours": "Business Hours",
+      "hours": "Mon-Fri: 8AM-6PM"
+    },
+    "success": "Booking request submitted! We'll contact you shortly to confirm."
+  },
+  "contact": {
+    "badge": "Contact Us",
+    "title": "Get in Touch",
+    "description": "Have questions about our services or want to schedule an appointment? We'd love to hear from you!",
+    "form": {
+      "title": "Send us a Message",
+      "description": "Fill out the form below and we'll get back to you as soon as possible.",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone Number",
+      "subject": "Subject",
+      "message": "Message",
+      "sendMessage": "Send Message"
+    },
+    "info": {
+      "title": "Contact Information",
+      "description": "Reach out to us through any of these channels.",
+      "address": "Address",
+      "addressText": "123 Pet Street\nCity, ST 12345",
+      "phone": "Phone",
+      "email": "Email",
+      "businessHours": "Business Hours",
+      "hoursText": "Monday - Friday: 8:00 AM - 6:00 PM\nSaturday: 9:00 AM - 5:00 PM\nSunday: 10:00 AM - 4:00 PM"
+    },
+    "emergency": {
+      "title": "Emergency Contact",
+      "description": "For pet emergencies outside of business hours, please contact:",
+      "clinic": "24/7 Pet Emergency Clinic",
+      "phone": "(555) 999-PETS",
+      "address": "456 Emergency Ave, City, ST 12345"
+    },
+    "map": {
+      "title": "Find Us",
+      "description": "We're conveniently located in the heart of the city.",
+      "placeholder": "Interactive map would be embedded here"
+    },
+    "success": "Message sent! We'll get back to you soon."
+  },
+  "services": {
+    "badge": "Our Services",
+    "title": "Professional Pet Grooming Services",
+    "description": "We offer a comprehensive range of grooming services to keep your pets healthy, happy, and looking their absolute best.",
+    "mainServices": [
+      {
+        "title": "Full Grooming Package",
+        "description": "Complete grooming service including bath, cut, nail trim, ear cleaning, and teeth brushing",
+        "price": "From $45",
+        "duration": "2-3 hours",
+        "popular": true,
+        "features": [
+          "Professional haircut & styling",
+          "Premium shampoo & conditioning",
+          "Nail trimming & filing",
+          "Ear cleaning & inspection",
+          "Teeth brushing",
+          "Blow dry & brushing",
+          "Cologne spritz",
+          "Bow or bandana"
+        ]
+      },
+      {
+        "title": "Bath & Brush Service",
+        "description": "Relaxing bath with premium products followed by thorough brushing and blow dry",
+        "price": "From $25",
+        "duration": "1-1.5 hours",
+        "features": [
+          "Warm, relaxing bath",
+          "Premium shampoo selection",
+          "Deep conditioning treatment",
+          "Thorough brushing",
+          "Professional blow dry",
+          "Light cologne spritz"
+        ]
+      },
+      {
+        "title": "Nail Care & Pedicure",
+        "description": "Professional nail trimming, filing, and paw care treatment",
+        "price": "From $15",
+        "duration": "30 minutes",
+        "features": [
+          "Nail trimming & filing",
+          "Paw pad moisturizing",
+          "Paw massage",
+          "Nail buffing",
+          "Quick nail inspection"
+        ]
+      },
+      {
+        "title": "Deluxe Spa Treatment",
+        "description": "Premium spa experience with specialized treatments and luxury products",
+        "price": "From $75",
+        "duration": "3-4 hours",
+        "features": [
+          "Aromatherapy bath",
+          "Deep conditioning mask",
+          "Paw & nose balm treatment",
+          "Professional styling",
+          "Nail art (optional)",
+          "Luxury cologne",
+          "Photo session",
+          "Take-home care kit"
+        ]
+      },
+      {
+        "title": "Flea & Tick Treatment",
+        "description": "Specialized treatment to eliminate and prevent flea and tick infestations",
+        "price": "From $30",
+        "duration": "1 hour",
+        "features": [
+          "Medicated shampoo treatment",
+          "Thorough flea comb-out",
+          "Preventive spray application",
+          "Coat inspection",
+          "Follow-up care instructions"
+        ]
+      },
+      {
+        "title": "Express Grooming",
+        "description": "Quick grooming service for pets who need a fast touch-up",
+        "price": "From $35",
+        "duration": "1 hour",
+        "features": ["Quick bath & dry", "Basic trim", "Nail trim", "Ear cleaning", "Express styling"]
+      }
+    ],
+    "addOns": {
+      "title": "Add-On Services",
+      "description": "Enhance your pet's grooming experience with these additional services.",
+      "services": [
+        {
+          "name": "Teeth Cleaning",
+      "price": "€20"
+        },
+        {
+          "name": "De-shedding Treatment",
+      "price": "€15"
+        },
+        {
+          "name": "Flea Shampoo",
+      "price": "€10"
+        },
+        {
+          "name": "Nail Polish",
+      "price": "€8"
+        },
+        {
+          "name": "Bow or Bandana",
+      "price": "€5"
+        },
+        {
+          "name": "Photo Package",
+      "price": "€25"
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Pricing Information",
+      "description": "Our pricing varies based on your pet's size, coat condition, and selected services.",
+      "small": {
+        "title": "Small Pets",
+        "description": "Under 25 lbs",
+        "price": "Base Price"
+      },
+      "medium": {
+        "title": "Medium Pets",
+        "description": "25-60 lbs",
+        "price": "+€10-15"
+      },
+      "large": {
+        "title": "Large Pets",
+        "description": "Over 60 lbs",
+        "price": "+€20-30"
+      },
+      "note": "Final pricing may vary based on coat condition, behavior, and specific requirements. We'll provide an exact quote during your consultation."
+    },
+    "cta": {
+      "title": "Ready to Pamper Your Pet?",
+      "description": "Book an appointment today and let our professional groomers give your furry friend the care they deserve.",
+      "bookAppointment": "Book Appointment",
+      "askQuestions": "Ask Questions"
+    },
+    "mostPopular": "Most Popular",
+    "bookThisService": "Book This Service"
+  },
+  "footer": {
+    "description": "Professional pet grooming services with love and care for your furry friends.",
+    "quickLinks": "Quick Links",
+    "contactInfo": "Contact Info",
+    "hours": "Hours",
+    "hoursText": "Mon-Fri: 8AM-6PM\nSat: 9AM-5PM\nSun: 10AM-4PM",
+    "copyright": "© 2024 Pawsome Grooming. All rights reserved."
+  },
+  "brandName": "Pawsome Grooming",
+  "meta": {
+    "title": "Pawsome Grooming - Professional Pet Grooming Services",
+    "description": "Professional pet grooming services for dogs and cats. Book your appointment today!"
+  }
+}
