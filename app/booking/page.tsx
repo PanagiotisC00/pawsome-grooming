@@ -50,6 +50,30 @@ export default function BookingPage() {
     return bands[bands.length - 1]
   }
 
+  // i18n helpers for services section (use Services page keys to avoid duplication)
+  const serviceI18nKeyById: Record<string, string> = {
+    full_grooming: "fullGrooming",
+    bath_brush: "bathBrush",
+    nail_care: "nailCare",
+    deluxe_spa: "deluxeSpa",
+    flea_tick: "fleaTick",
+    express_grooming: "expressGrooming",
+    teeth_cleaning: "teethCleaning",
+    deshedding: "deshedding",
+  }
+  const translateServiceTitle = (id: string, fallback: string) => {
+    const key = serviceI18nKeyById[id]
+    if (!key) return fallback
+    const k = `services.cards.${key}.title`
+    const value = t(k)
+    return typeof value === "string" && value !== k ? value : fallback
+  }
+  const translateWeightLabel = (label: string) => {
+    const k = `services.weightLabels.${label}`
+    const value = t(k)
+    return typeof value === "string" && value !== k ? value : label
+  }
+
   // Booking services aligned with /services page
   const BOOKING_SERVICES: BookingService[] = [
     {
@@ -266,7 +290,7 @@ export default function BookingPage() {
                   {/* Weight selector to compute prices consistently with /services */}
                   {/* Simplified, toned-down weight selector */}
                   <div className="flex items-center gap-2">
-                    <span className="text-sm text-muted-foreground">Pet weight</span>
+                    <span className="text-sm text-muted-foreground">{safe("services.weight", "Pet weight")}</span>
                     <Select value={String(weightKg)} onValueChange={(v) => setWeightKg(parseInt(v))}>
                       <SelectTrigger className="w-44">
                         <SelectValue />
@@ -274,7 +298,7 @@ export default function BookingPage() {
                       <SelectContent>
                         {WEIGHT_OPTIONS.map((opt) => (
                           <SelectItem key={opt.value} value={String(opt.value)}>
-                            {opt.label}
+                            {translateWeightLabel(opt.label)}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -294,7 +318,7 @@ export default function BookingPage() {
                           />
                           <Label htmlFor={service.id} className="flex-1 cursor-pointer">
                             <div className="flex items-center gap-2">
-                              <span>{service.title}</span>
+                              <span>{translateServiceTitle(service.id, service.title)}</span>
                               <span className="text-[#6e8b7c] font-medium">€{band.price}</span>
                             </div>
                           </Label>

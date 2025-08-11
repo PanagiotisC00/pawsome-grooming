@@ -10,9 +10,11 @@ import Link from "next/link"
 import { Scissors, Heart, Star, Sparkles, Shield, Zap, Droplets } from "lucide-react"
 import { useTranslation } from "@/lib/i18n"
 
+// i18n: we keep English defaults in the model and read localized strings via translations (minimal change)
 type WeightBand = { label: string; uptoKg: number; price: number }
 type Service = {
   icon: React.ComponentType<{ className?: string }>
+  i18nKey: string
   title: string
   description: string
   duration: string
@@ -26,6 +28,7 @@ const euro = (n: number) => `€${n}`
 const SERVICES: Service[] = [
   {
     icon: Scissors,
+    i18nKey: "fullGrooming",
     title: "Full Grooming",
     description:
       "Complete grooming package including bath, cut, nail trim, ear cleaning, and teeth brushing.",
@@ -45,6 +48,7 @@ const SERVICES: Service[] = [
   },
   {
     icon: Heart,
+    i18nKey: "bathBrush",
     title: "Bath & Brush",
     description: "Relaxing bath with premium shampoo and thorough brushing.",
     duration: "1–1.5 hours",
@@ -57,6 +61,7 @@ const SERVICES: Service[] = [
   },
   {
     icon: Star,
+    i18nKey: "nailCare",
     title: "Nail Care",
     description: "Professional nail trimming and paw care.",
     duration: "30 minutes",
@@ -65,6 +70,7 @@ const SERVICES: Service[] = [
   },
   {
     icon: Sparkles,
+    i18nKey: "deluxeSpa",
     title: "Deluxe Spa",
     description: "Premium spa experience with specialized treatments and luxury products.",
     duration: "3–4 hours",
@@ -81,6 +87,7 @@ const SERVICES: Service[] = [
   },
   {
     icon: Shield,
+    i18nKey: "fleaTick",
     title: "Flea & Tick Treatment",
     description: "Treatment to eliminate and prevent flea and tick infestations.",
     duration: "~1 hour",
@@ -92,6 +99,7 @@ const SERVICES: Service[] = [
   },
   {
     icon: Zap,
+    i18nKey: "expressGrooming",
     title: "Express Grooming",
     description: "Quick bath & dry, basic trim, nail trim and ear cleaning.",
     duration: "~1 hour",
@@ -103,6 +111,7 @@ const SERVICES: Service[] = [
   },
   {
     icon: Sparkles,
+    i18nKey: "teethCleaning",
     title: "Teeth Cleaning",
     description: "Gentle teeth brushing and mouth freshening.",
     duration: "~30 minutes",
@@ -111,6 +120,7 @@ const SERVICES: Service[] = [
   },
   {
     icon: Droplets,
+    i18nKey: "deshedding",
     title: "De‑shedding Treatment",
     description: "Undercoat removal and coat conditioning to reduce shedding.",
     duration: "45–60 minutes",
@@ -139,6 +149,11 @@ function priceForWeight(bands: WeightBand[], weight: number): WeightBand {
 export default function ServicesPage() {
   const { t } = useTranslation()
   const [weightKg, setWeightKg] = useState<number>(WEIGHT_OPTIONS[0].value)
+  const translate = (key: string, fallback: string) => {
+    const value = t(key)
+    return typeof value === "string" && value !== key ? value : fallback
+  }
+  const translateWeightLabel = (label: string) => translate(`services.weightLabels.${label}`, label)
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 mx-auto w-full max-w-[120rem]">
@@ -151,7 +166,7 @@ export default function ServicesPage() {
         <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">{t("services.description")}</p>
 
         <div className="mt-2 flex items-center gap-3">
-          <span className="text-sm text-muted-foreground">Pet weight</span>
+          <span className="text-sm text-muted-foreground">{translate("services.weight", "Pet weight")}</span>
           <Select value={String(weightKg)} onValueChange={(v) => setWeightKg(parseInt(v))}>
             <SelectTrigger className="w-44">
               <SelectValue />
@@ -159,7 +174,7 @@ export default function ServicesPage() {
             <SelectContent>
               {WEIGHT_OPTIONS.map((opt) => (
                 <SelectItem key={opt.value} value={String(opt.value)}>
-                  {opt.label}
+                  {translateWeightLabel(opt.label)}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -169,49 +184,54 @@ export default function ServicesPage() {
 
       <div className="grid items-stretch grid-cols-[repeat(auto-fit,minmax(280px,1fr))] gap-6 md:gap-8 mb-12">
         {SERVICES.map((service) => {
+          const baseKey = `services.cards.${service.i18nKey}`
+          const title = translate(`${baseKey}.title`, service.title)
+          const description = translate(`${baseKey}.description`, service.description)
+          const duration = translate(`${baseKey}.duration`, service.duration)
+          const translatedFeatures = service.features.map((defaultFeature, idx) =>
+            translate(`${baseKey}.features.${idx}`, defaultFeature),
+          )
           const band = priceForWeight(service.bands, weightKg)
           // Fallback to Scissors icon if a provided icon is missing/undefined
           const IconComp = (service.icon || Scissors) as React.ComponentType<{ className?: string }>
           return (
             <Card
-              key={service.title}
+              key={service.i18nKey}
               className={`relative overflow-hidden hover:shadow-lg transition-shadow ${service.popular ? "ring-2 ring-[#6e8b7c]" : ""} flex h-full flex-col`}
             >
-              {service.popular && (
-                <div className="absolute top-4 right-4">
-                  <Badge className="bg-[#6e8b7c] text-white">{t("services.mostPopular")}</Badge>
-                </div>
-              )}
+            {/* Inline badge prevents overlapping title */}
               <CardHeader>
                 <div className="flex items-center space-x-3">
                   <div className="p-2 bg-[#e8f0ec] rounded-lg">
                     <IconComp className="h-6 w-6 text-[#6e8b7c]" />
                   </div>
                   <div>
-                    <CardTitle className="text-lg">{service.title}</CardTitle>
-                    <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                      <span>{euro(band.price)}</span>
-                      <span>•</span>
-                      <span>{band.label}</span>
-                      <span>•</span>
-                      <span>{service.duration}</span>
+                    <div className="flex items-center gap-2">
+                      <CardTitle className="text-lg">{title}</CardTitle>
+                      {service.popular && (
+                        <Badge className="bg-[#6e8b7c] text-white whitespace-nowrap">{t("services.mostPopular")}</Badge>
+                      )}
+                    </div>
+                    {/* Show only approximate time under title per request */}
+                    <div className="flex items-center text-sm text-muted-foreground">
+                      <span>{duration}</span>
                     </div>
                   </div>
                 </div>
-                <CardDescription>{service.description}</CardDescription>
+                <CardDescription>{description}</CardDescription>
               </CardHeader>
               <CardContent className="flex-1 flex flex-col gap-4">
                 <div className="space-y-2 mb-4">
                   {service.bands.map((b) => (
                     <div key={b.label} className="flex items-center justify-between text-sm">
-                      <span className="text-muted-foreground">{b.label}</span>
+                      <span className="text-muted-foreground">{translateWeightLabel(b.label)}</span>
                       <span className="font-semibold text-[#6e8b7c]">{euro(b.price)}</span>
                     </div>
                   ))}
                 </div>
-                {service.features.length > 0 && (
+                {translatedFeatures.length > 0 && (
                   <ul className="space-y-2 mb-4">
-                    {service.features.map((feature) => (
+                    {translatedFeatures.map((feature) => (
                       <li key={feature} className="flex items-center gap-2 text-sm">
                         <div className="h-1.5 w-1.5 bg-[#6e8b7c] rounded-full" />
                         <span>{feature}</span>

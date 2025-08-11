@@ -192,8 +192,9 @@ Sun: 10:00–16:00</div>
                 <div className="pointer-events-none absolute inset-0 opacity-70 [background:radial-gradient(600px_200px_at_20%_20%,rgba(255,255,255,0.6),transparent),radial-gradient(400px_160px_at_80%_80%,rgba(255,255,255,0.4),transparent)]" />
               </div>
               <div className="text-center mt-4">
+                {/* Localize the "Get Directions" CTA */}
                 <Button asChild size="lg">
-                  <a href="https://www.google.com/maps/search/?api=1&query=Address%201%2C%20Town%202%2C%20Cyprus" target="_blank" rel="noopener noreferrer">Get Directions</a>
+                  <a href="https://www.google.com/maps/search/?api=1&query=Address%201%2C%20Town%202%2C%20Cyprus" target="_blank" rel="noopener noreferrer">{safe("contact.map.getDirections", "Get Directions")}</a>
                 </Button>
               </div>
             </div>

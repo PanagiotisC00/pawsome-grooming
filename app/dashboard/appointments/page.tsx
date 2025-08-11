@@ -26,7 +26,7 @@ export default function AdminAppointmentsPage() {
   const [appointments, setAppointments] = useState<Appointment[]>([])
   const [query, setQuery] = useState("")
   const [status, setStatus] = useState<string>("all")
-  const [day, setDay] = useState<string>("today")
+  const [day, setDay] = useState<string>("all") // Default to show all so dummy data is visible on first load
 
   useEffect(() => {
     // Load dummy data from public (static) JSON

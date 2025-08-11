@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import Image from "next/image"
-import { Scissors, Heart, Star, Shield, Clock, Award } from "lucide-react"
+import { Scissors, Heart, Star, Shield, Clock, Award, Phone } from "lucide-react" // Using icon instead of emoji per project rule
 import { useTranslation } from "@/lib/i18n"
 
 export default function HomePage() {
@@ -40,8 +40,20 @@ export default function HomePage() {
                 >
                   <Link href="/services">{t("homepage.hero.viewServices")}</Link>
                 </Button>
+                {/* Hero: click-to-call button for quick contact */}
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  asChild
+                  className="relative overflow-hidden ring-2 ring-[#6e8b7c] shadow-[0_10px_20px_rgba(110,139,124,0.35)] animate-pulse-soft hover:animate-none"
+                >
+                  <a href="tel:+35722123456" className="inline-flex items-center gap-2">
+                    <Phone className="h-5 w-5" />
+                    {t("homepage.hero.callUs")}
+                  </a>
+                </Button>
               </div>
-              <div className="flex flex-col sm:flex-row sm:items-center justify-center gap-4 sm:gap-8 text-sm text-muted-foreground animate-slide-up [animation-delay:600ms] mx-auto">
+              <div className="flex flex-col items-center sm:flex-row sm:items-center justify-center gap-4 sm:gap-8 text-sm text-muted-foreground animate-slide-up [animation-delay:600ms] mx-auto"> {/* Center on mobile */}
                 <div className="flex items-center gap-2">
                   <Shield className="h-4 w-4 text-green-600" />
                   <span>{t("homepage.hero.licensedInsured")}</span>

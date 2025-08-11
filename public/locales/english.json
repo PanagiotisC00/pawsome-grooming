@@ -82,6 +82,7 @@
       "description": "Professional grooming services that keep your furry friends looking and feeling their absolute best. Book your appointment today!",
       "bookAppointment": "Book Appointment",
       "viewServices": "View Services",
+      "callUs": "Call Us",
       "licensedInsured": "Licensed & Insured",
       "experience": "5+ Years Experience"
     },
@@ -197,7 +198,17 @@
     ],
     "cta": {
       "title": "Love What You See?",
-      "description": "Book an appointment today and let us pamper your pet with the same care and attention."
+      "description": "Book an appointment today and let us pamper your pet with the same care and attention.",
+      "bookNow": "Book Now"
+    },
+    "serviceNames": {
+      "fullGrooming": "Full Grooming",
+      "bathBrush": "Bath & Brush",
+      "deshedding": "De‑shedding",
+      "styleCut": "Style & Cut",
+      "styleFinish": "Style & Finish",
+      "nailCare": "Nail Care",
+      "longHairCare": "Long Hair Care"
     }
   },
   "booking": {
@@ -265,6 +276,7 @@
     "help": {
       "title": "Need Help?",
       "callUs": "Call Us",
+      "contactUs": "Contact Us",
       "emailUs": "Email Us",
       "businessHours": "Business Hours",
       "hours": "Mon-Fri: 8AM-6PM"
@@ -305,7 +317,8 @@
     "map": {
       "title": "Find Us",
       "description": "We're conveniently located in the heart of the city.",
-      "placeholder": "Interactive map would be embedded here"
+      "placeholder": "Interactive map would be embedded here",
+      "getDirections": "Get Directions"
     },
     "success": "Message sent! We'll get back to you soon."
   },
@@ -450,6 +463,100 @@
       "description": "Book an appointment today and let our professional groomers give your furry friend the care they deserve.",
       "bookAppointment": "Book Appointment",
       "askQuestions": "Ask Questions"
+    },
+    "weight": "Pet weight",
+    "weightLabels": {
+      "Up to 10 kg": "Up to 10 kg",
+      "11–25 kg": "11–25 kg",
+      "26–40 kg": "26–40 kg",
+      "Up to 25 kg": "Up to 25 kg",
+      "All sizes": "All sizes"
+    },
+    "cards": {
+      "fullGrooming": {
+        "title": "Full Grooming",
+        "description": "Complete grooming package including bath, cut, nail trim, ear cleaning, and teeth brushing.",
+        "duration": "2–3 hours",
+        "features": [
+          "Professional haircut & styling",
+          "Premium shampoo & conditioning",
+          "Nail trimming & filing",
+          "Ear cleaning & inspection"
+        ]
+      },
+      "bathBrush": {
+        "title": "Bath & Brush",
+        "description": "Relaxing bath with premium shampoo and thorough brushing.",
+        "duration": "1–1.5 hours",
+        "features": [
+          "Premium shampoo selection",
+          "Deep conditioning",
+          "Thorough brushing",
+          "Professional blow dry"
+        ]
+      },
+      "nailCare": {
+        "title": "Nail Care",
+        "description": "Professional nail trimming and paw care.",
+        "duration": "30 minutes",
+        "features": [
+          "Nail trimming & filing",
+          "Paw pad moisturizing",
+          "Quick nail inspection"
+        ]
+      },
+      "deluxeSpa": {
+        "title": "Deluxe Spa",
+        "description": "Premium spa experience with specialized treatments and luxury products.",
+        "duration": "3–4 hours",
+        "features": [
+          "Aromatherapy bath",
+          "Deep conditioning mask",
+          "Paw & nose balm treatment",
+          "Luxury cologne"
+        ]
+      },
+      "fleaTick": {
+        "title": "Flea & Tick Treatment",
+        "description": "Treatment to eliminate and prevent flea and tick infestations.",
+        "duration": "~1 hour",
+        "features": [
+          "Medicated shampoo",
+          "Thorough comb-out",
+          "Preventive spray"
+        ]
+      },
+      "expressGrooming": {
+        "title": "Express Grooming",
+        "description": "Quick bath & dry, basic trim, nail trim and ear cleaning.",
+        "duration": "~1 hour",
+        "features": [
+          "Quick bath & dry",
+          "Basic trim",
+          "Nail trim",
+          "Ear cleaning"
+        ]
+      },
+      "teethCleaning": {
+        "title": "Teeth Cleaning",
+        "description": "Gentle teeth brushing and mouth freshening.",
+        "duration": "~30 minutes",
+        "features": [
+          "Plaque brushing",
+          "Breath freshening",
+          "Quick dental inspection"
+        ]
+      },
+      "deshedding": {
+        "title": "De‑shedding Treatment",
+        "description": "Undercoat removal and coat conditioning to reduce shedding.",
+        "duration": "45–60 minutes",
+        "features": [
+          "Undercoat removal",
+          "Blow out",
+          "Coat conditioning"
+        ]
+      }
     },
     "mostPopular": "Most Popular",
     "bookThisService": "Book This Service"

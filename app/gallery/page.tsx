@@ -22,6 +22,23 @@ const galleryImages = [
 
 export default function GalleryPage() {
   const { t } = useTranslation()
+  // Map English descriptor to a translation key; minimal change without altering data shape
+  const serviceKeyByEn: Record<string, string> = {
+    "Full Grooming": "fullGrooming",
+    "Bath & Brush": "bathBrush",
+    "De‑shedding": "deshedding",
+    "Style & Cut": "styleCut",
+    "Nail Care": "nailCare",
+    "Long Hair Care": "longHairCare",
+    "Style & Finish": "styleFinish",
+  }
+  const translateService = (enLabel: string) => {
+    const key = serviceKeyByEn[enLabel]
+    if (!key) return enLabel
+    const full = `gallery.serviceNames.${key}`
+    const translated = t(full)
+    return typeof translated === "string" && translated !== full ? translated : enLabel
+  }
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 mx-auto w-full max-w-[120rem]">
@@ -51,7 +68,7 @@ export default function GalleryPage() {
               </div>
               <div className="p-4">
                 <h3 className="font-semibold text-sm md:text-base">{item.title}</h3>
-                <p className="text-muted-foreground text-xs md:text-sm">{item.description}</p>
+                <p className="text-muted-foreground text-xs md:text-sm">{translateService(item.description)}</p>
               </div>
             </CardContent>
           </Card>
@@ -64,9 +81,7 @@ export default function GalleryPage() {
           <h2 className="text-2xl font-bold">{t("gallery.cta.title")}</h2>
           <p className="text-muted-foreground">{t("gallery.cta.description")}</p>
           <div>
-            <Button asChild size="lg" className="mt-2">
-              <Link href="/booking">Book Now</Link>
-            </Button>
+            <Button asChild size="lg" className="mt-2"><Link href="/booking">{t("gallery.cta.bookNow")}</Link></Button>
           </div>
         </CardContent>
       </Card>

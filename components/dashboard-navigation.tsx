@@ -44,8 +44,8 @@ export function DashboardNavigation() {
   const pathname = usePathname()
 
   return (
-    <header className="sticky top-16 z-40 w-full bg-transparent">
-      <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 pt-2">
+    <header className="fixed top-0 left-0 right-0 z-[60] w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b shadow-sm">
+      <div className="mx-auto w-full max-w-[120rem] px-4 sm:px-6 lg:px-8 py-2">
         <div className="flex items-center justify-start gap-4">
           {/* Compact, curved admin toolbar */}
           <nav className="hidden lg:flex items-center gap-1 rounded-full ring-1 ring-border bg-white/80 backdrop-blur px-2 py-1 shadow-sm">

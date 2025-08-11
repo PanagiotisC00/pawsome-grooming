@@ -67,8 +67,8 @@ export function I18nProvider({ children }: I18nProviderProps) {
       if (value && typeof value === "object" && k in value) {
         value = value[k]
       } else {
-        console.warn(`Translation key not found: ${key}`)
-        return key // Return the key itself as fallback
+        // Suppress noisy i18n warnings; return the key and let callers apply fallbacks
+        return key
       }
     }
 
