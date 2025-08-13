@@ -18,25 +18,25 @@ export default function HomePage() {
         <div className="px-4 sm:px-6 lg:px-8 mx-auto w-full max-w-[120rem]">
           <div className="flex flex-col gap-8 md:gap-10 items-center text-center">
             <div className="space-y-8 animate-slide-in-left">
-              <div className="inline-block mx-auto animate-slide-up rounded-full bg-white/80 dark:bg-white/10 backdrop-blur-md ring-1 ring-border/60 shadow-[0_1px_2px_rgba(0,0,0,0.06)] px-5 md:px-6 py-3">
-                <h1 className="font-[var(--font-display,_inherit)] font-extrabold tracking-tight leading-none text-[clamp(1.15rem,1.8vw,2rem)] text-foreground whitespace-nowrap">
+              <div className="inline-block mx-auto animate-slide-up rounded-full bg-white/80 dark:bg-white/10 backdrop-blur-md ring-1 ring-border/60 shadow-[0_1px_2px_rgba(0,0,0,0.06)] px-5 md:px-6 py-3 max-w-full">
+                <h1 className="font-[var(--font-display,_inherit)] font-extrabold tracking-tight leading-tight text-[clamp(1.15rem,1.8vw,2rem)] text-foreground text-center break-words">
                   {t("homepage.hero.title")} {" "}
                   {/* Highlight the "Best Care" part in brand sage */}
                   <span className="text-[#6e8b7c]">{t("homepage.hero.titleHighlight")}</span>
                 </h1>
               </div>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-center leading-relaxed animate-slide-up [animation-delay:200ms] text-[clamp(1rem,2.2vw,1.25rem)]">
+              <p className="text-muted-foreground max-w-4xl mx-auto text-center leading-relaxed animate-slide-up [animation-delay:200ms] text-[clamp(1rem,2.2vw,1.25rem)] px-4">
                 {t("homepage.hero.description")}
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 animate-slide-up [animation-delay:400ms] justify-center self-center">
-                <Button size="lg" asChild className="transition-all duration-200 hover:scale-105 active:scale-95">
+              <div className="flex flex-col sm:flex-row gap-4 animate-slide-up [animation-delay:400ms] justify-center items-center max-w-5xl mx-auto px-4">
+                <Button size="lg" asChild className="transition-all duration-200 hover:scale-105 active:scale-95 w-full sm:w-auto whitespace-nowrap">
                   <Link href="/booking">{t("homepage.hero.bookAppointment")}</Link>
                 </Button>
                 <Button
                   size="lg"
                   variant="outline"
                   asChild
-                  className="bg-transparent transition-all duration-200 hover:scale-105 active:scale-95"
+                  className="bg-transparent transition-all duration-200 hover:scale-105 active:scale-95 w-full sm:w-auto whitespace-nowrap"
                 >
                   <Link href="/services">{t("homepage.hero.viewServices")}</Link>
                 </Button>
@@ -45,7 +45,7 @@ export default function HomePage() {
                   size="lg"
                   variant="secondary"
                   asChild
-                  className="relative overflow-hidden ring-2 ring-[#6e8b7c] shadow-[0_10px_20px_rgba(110,139,124,0.35)] animate-pulse-soft hover:animate-none"
+                  className="relative overflow-hidden ring-2 ring-[#6e8b7c] shadow-[0_10px_20px_rgba(110,139,124,0.35)] animate-pulse-soft hover:animate-none w-full sm:w-auto whitespace-nowrap"
                 >
                   <a href="tel:+35722123456" className="inline-flex items-center gap-2">
                     <Phone className="h-5 w-5" />
@@ -53,14 +53,14 @@ export default function HomePage() {
                   </a>
                 </Button>
               </div>
-              <div className="flex flex-col items-center sm:flex-row sm:items-center justify-center gap-4 sm:gap-8 text-sm text-muted-foreground animate-slide-up [animation-delay:600ms] mx-auto"> {/* Center on mobile */}
-                <div className="flex items-center gap-2">
-                  <Shield className="h-4 w-4 text-green-600" />
-                  <span>{t("homepage.hero.licensedInsured")}</span>
+              <div className="flex flex-col items-center sm:flex-row sm:items-center justify-center gap-4 sm:gap-8 text-sm text-muted-foreground animate-slide-up [animation-delay:600ms] mx-auto max-w-4xl px-4"> {/* Center on mobile */}
+                <div className="flex items-center gap-2 text-center sm:text-left">
+                  <Shield className="h-4 w-4 text-green-600 flex-shrink-0" />
+                  <span className="whitespace-nowrap">{t("homepage.hero.licensedInsured")}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Award className="h-4 w-4 text-blue-600" />
-                  <span>{t("homepage.hero.experience")}</span>
+                <div className="flex items-center gap-2 text-center sm:text-left">
+                  <Award className="h-4 w-4 text-blue-600 flex-shrink-0" />
+                  <span className="whitespace-nowrap">{t("homepage.hero.experience")}</span>
                 </div>
               </div>
             </div>
@@ -88,12 +88,12 @@ export default function HomePage() {
         <div className="px-4 sm:px-6 lg:px-8 mx-auto w-full max-w-[120rem]">
           <div className="text-center space-y-6 mb-16 animate-fade-in">
             {/* Use grey bubble on white section for better contrast */}
-            <div className="inline-block rounded-full bg-secondary dark:bg-white/10 backdrop-blur-md ring-1 ring-border/60 shadow-[0_1px_2px_rgba(0,0,0,0.06)] px-5 md:px-6 py-3 animate-slide-up">
-              <h2 className="font-[var(--font-display,_inherit)] font-extrabold tracking-tight leading-none text-[clamp(1.15rem,1.8vw,2rem)] text-foreground">
+            <div className="inline-block rounded-full bg-secondary dark:bg-white/10 backdrop-blur-md ring-1 ring-border/60 shadow-[0_1px_2px_rgba(0,0,0,0.06)] px-5 md:px-6 py-3 animate-slide-up max-w-full">
+              <h2 className="font-[var(--font-display,_inherit)] font-extrabold tracking-tight leading-tight text-[clamp(1.15rem,1.8vw,2rem)] text-foreground text-center break-words">
                 {t("homepage.services.title")}
               </h2>
             </div>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-slide-up [animation-delay:200ms]">
+            <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed animate-slide-up [animation-delay:200ms] px-4">
               {t("homepage.services.description")}
             </p>
           </div>
@@ -177,8 +177,8 @@ export default function HomePage() {
       <section className="py-16 lg:py-24 bg-gradient-to-br from-[#fbf5ed] to-[#e8f0ec]">
         <div className="px-4 sm:px-6 lg:px-8 mx-auto w-full max-w-[120rem]">
           <div className="text-center space-y-6 mb-16 animate-fade-in">
-            <div className="inline-block rounded-full bg-white/80 dark:bg-white/10 backdrop-blur-md ring-1 ring-border/60 shadow-[0_1px_2px_rgba(0,0,0,0.06)] px-5 md:px-6 py-3 animate-slide-up">
-              <h2 className="font-[var(--font-display,_inherit)] font-extrabold tracking-tight leading-none text-[clamp(1.15rem,1.8vw,2rem)] text-foreground">
+            <div className="inline-block rounded-full bg-white/80 dark:bg-white/10 backdrop-blur-md ring-1 ring-border/60 shadow-[0_1px_2px_rgba(0,0,0,0.06)] px-5 md:px-6 py-3 animate-slide-up max-w-full">
+              <h2 className="font-[var(--font-display,_inherit)] font-extrabold tracking-tight leading-tight text-[clamp(1.15rem,1.8vw,2rem)] text-foreground text-center break-words">
                 {t("homepage.whyChooseUs.title")}
               </h2>
             </div>
@@ -222,8 +222,8 @@ export default function HomePage() {
                     />
                   </div>
                 </div>
-                <h3 className="text-2xl font-semibold">{item.title}</h3>
-                <p className="text-muted-foreground leading-relaxed max-w-sm mx-auto">{item.description}</p>
+                <h3 className="text-2xl font-semibold break-words">{item.title}</h3>
+                <p className="text-muted-foreground leading-relaxed max-w-md mx-auto px-4">{item.description}</p>
               </div>
             ))}
           </div>
@@ -232,11 +232,11 @@ export default function HomePage() {
 
       {/* Testimonials Section */}
       <section className="py-16 lg:py-24 bg-white">
-        <div className="container px-4 sm:px-6 lg:px-8">
+        <div className="px-4 sm:px-6 lg:px-8 mx-auto w-full max-w-[120rem]">
           <div className="text-center space-y-6 mb-16 animate-fade-in">
             {/* Use grey bubble on white section for better contrast */}
-            <div className="inline-block rounded-full bg-secondary dark:bg-white/10 backdrop-blur-md ring-1 ring-border/60 shadow-[0_1px_2px_rgba(0,0,0,0.06)] px-5 md:px-6 py-3 animate-slide-up">
-              <h2 className="font-[var(--font-display,_inherit)] font-extrabold tracking-tight leading-none text-[clamp(1.15rem,1.8vw,2rem)] text-foreground">
+            <div className="inline-block rounded-full bg-secondary dark:bg-white/10 backdrop-blur-md ring-1 ring-border/60 shadow-[0_1px_2px_rgba(0,0,0,0.06)] px-5 md:px-6 py-3 animate-slide-up max-w-full">
+              <h2 className="font-[var(--font-display,_inherit)] font-extrabold tracking-tight leading-tight text-[clamp(1.15rem,1.8vw,2rem)] text-foreground text-center break-words">
                 {t("homepage.testimonials.title")}
               </h2>
             </div>
@@ -276,20 +276,20 @@ export default function HomePage() {
       {/* CTA Section */}
       <section className="py-16 lg:py-24 bg-gradient-to-r from-[#6e8b7c] via-[#9fb7ab] to-[#b8c7bf] text-white animate-gradient">
         <div className="px-4 sm:px-6 lg:px-8 mx-auto w-full max-w-[120rem] text-center space-y-8">
-          <h2 className="text-3xl lg:text-5xl font-bold animate-slide-up">{t("homepage.cta.title")}</h2>
-          <p className="text-xl opacity-90 max-w-3xl mx-auto leading-relaxed animate-slide-up [animation-delay:200ms]">
+          <h2 className="text-3xl lg:text-5xl font-bold animate-slide-up break-words leading-tight">{t("homepage.cta.title")}</h2>
+          <p className="text-xl opacity-90 max-w-4xl mx-auto leading-relaxed animate-slide-up [animation-delay:200ms] px-4">
             {t("homepage.cta.description")}
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up [animation-delay:400ms]">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center animate-slide-up [animation-delay:400ms] max-w-2xl mx-auto px-4">
             <Button
               size="lg"
               variant="secondary"
               asChild
-              className="transition-all duration-200 hover:scale-105 active:scale-95"
+              className="transition-all duration-200 hover:scale-105 active:scale-95 w-full sm:w-auto whitespace-nowrap"
             >
               <Link href="/booking">{t("homepage.cta.bookNow")}</Link>
             </Button>
-              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-[#6e8b7c] transition-all duration-200 hover:scale-105 active:scale-95" asChild>
+              <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-[#6e8b7c] transition-all duration-200 hover:scale-105 active:scale-95 w-full sm:w-auto whitespace-nowrap" asChild>
               <Link href="/contact">{t("homepage.cta.contactUs")}</Link>
             </Button>
           </div>

@@ -6,6 +6,7 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { I18nProvider } from "@/lib/i18n"
+import { Analytics } from "@vercel/analytics/next"
 
 const inter = Inter({ subsets: ["latin"] })
 const display = Manrope({ subsets: ["latin"], variable: "--font-display" })
@@ -16,7 +17,10 @@ export const metadata: Metadata = {
   description: "Professional dog & cat grooming in Nicosia, Cyprus. Book your appointment today!",
   // generator removed for cleanliness
   // Use site icons from public/logos (for clarity and consistency across platforms)
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://www.pawsomegrooming.cy"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://pawsome-grooming.vercel.app"),
+  verification: {
+    google: 'your-google-site-verification-id', // Add your Google verification ID
+  },
   alternates: {
     canonical: "/",
     languages: {
@@ -42,9 +46,9 @@ export const metadata: Metadata = {
     locale: "en_GB",
     images: [
       {
-        url: "/logos/opengraph-default.png",
-        width: 1200,
-        height: 630,
+        url: "/logos/android-chrome-512x512.png",
+        width: 512,
+        height: 512,
         alt: "Pawsome Grooming Cyprus",
       },
     ],
@@ -54,7 +58,7 @@ export const metadata: Metadata = {
     title: "Pawsome Grooming Cyprus",
     description:
       "Professional dog & cat grooming in Nicosia, Cyprus. Book your appointment today!",
-    images: ["/logos/opengraph-default.png"],
+    images: ["/logos/android-chrome-512x512.png"],
   },
   robots: {
     index: true,
@@ -106,13 +110,14 @@ export default function RootLayout({
         <Preconnect />
         <I18nProvider>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
-            <div className="min-h-screen flex flex-col mx-auto w-full max-w-[120rem]">
+            <div className="min-h-screen flex flex-col">
               <Navigation />
               <main className="flex-1">{children}</main>
               <Footer />
             </div>
           </ThemeProvider>
         </I18nProvider>
+        <Analytics />
       </body>
     </html>
   )

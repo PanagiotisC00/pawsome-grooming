@@ -203,12 +203,12 @@ export default function DashboardPage() {
               className={`bg-white rounded-xl border border-gray-200 shadow-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1 cursor-pointer animate-slide-up`}
               style={{ animationDelay: metric.delay }}
             >
-              <CardContent className="p-6">
+              <CardContent className="p-4 sm:p-6">
                 <div className="flex items-center justify-between">
-                  <div className="space-y-2">
-                    <p className="text-sm font-medium text-gray-600">{metric.title}</p>
-                    <p className="text-3xl font-bold text-gray-900">{metric.value}</p>
-                    <p className="text-sm text-green-600">{metric.change}</p>
+                  <div className="space-y-1 sm:space-y-2 flex-1 min-w-0">
+                    <p className="text-xs sm:text-sm font-medium text-gray-600 truncate">{metric.title}</p>
+                    <p className="text-2xl sm:text-3xl font-bold text-gray-900">{metric.value}</p>
+                    <p className="text-xs sm:text-sm text-green-600">{metric.change}</p>
                   </div>
                   <div
                     className={`p-3 ${
@@ -245,7 +245,7 @@ export default function DashboardPage() {
             {/* Upcoming Appointments */}
             <Card className="animate-slide-in-left">
               <CardHeader>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <CardTitle className="flex items-center gap-3 text-xl">
                       <Calendar className="h-5 w-5 text-blue-600" />
@@ -253,22 +253,22 @@ export default function DashboardPage() {
                     </CardTitle>
                     <CardDescription className="mt-2">Manage your scheduled appointments for today</CardDescription>
                   </div>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 flex-wrap">
                     <Button
                       variant="outline"
                       size="sm"
-                      className="border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-all duration-200 hover:scale-105 active:scale-95 bg-transparent"
+                      className="border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-all duration-200 hover:scale-105 active:scale-95 bg-transparent flex-shrink-0"
                     >
-                      <Filter className="h-4 w-4 mr-2" />
-                      Filter
+                      <Filter className="h-4 w-4 sm:mr-2" />
+                      <span className="hidden sm:inline">Filter</span>
                     </Button>
                     <Button
                       variant="outline"
                       size="sm"
-                      className="border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-all duration-200 hover:scale-105 active:scale-95 bg-transparent"
+                      className="border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-all duration-200 hover:scale-105 active:scale-95 bg-transparent flex-shrink-0"
                     >
-                      <Search className="h-4 w-4 mr-2" />
-                      Search
+                      <Search className="h-4 w-4 sm:mr-2" />
+                      <span className="hidden sm:inline">Search</span>
                     </Button>
                   </div>
                 </div>
@@ -278,74 +278,91 @@ export default function DashboardPage() {
                   {upcomingAppointments.map((appointment, index) => (
                     <div
                       key={appointment.id}
-                      className={`border rounded-xl p-6 hover:bg-gray-50 transition-all duration-300 animate-slide-up`}
+                      className={`border rounded-xl p-4 sm:p-6 hover:bg-gray-50 transition-all duration-300 animate-slide-up`}
                       style={{ animationDelay: `${400 + index * 100}ms` }}
                     >
-                      <div className="flex items-start justify-between">
-                        <div className="flex items-start gap-6">
-                          <div className="text-center min-w-0">
-                            <div className="text-lg font-semibold text-gray-900">{appointment.time}</div>
-                            <div className="text-sm text-gray-500">{appointment.duration}</div>
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <div className="flex items-center gap-3 mb-3 flex-wrap">
-                              <h3 className="font-semibold text-gray-900 text-lg">{appointment.petName}</h3>
-                              <Badge variant="outline" className="text-xs">
-                                {appointment.petType}
-                              </Badge>
-                              <Badge className={`${getStatusColor(appointment.status)} text-xs border`}>
-                                {getStatusIcon(appointment.status)}
-                                <span className="ml-1 capitalize">{appointment.status}</span>
-                              </Badge>
-                            </div>
-                            <div className="space-y-2 text-sm text-gray-600">
-                              <div className="flex items-center gap-2">
-                                <Users className="h-4 w-4 flex-shrink-0" />
-                                <span>{appointment.ownerName}</span>
-                              </div>
-                              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-6">
-                                <div className="flex items-center gap-2">
-                                  <Phone className="h-4 w-4 flex-shrink-0" />
-                                  <span>{appointment.phone}</span>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                  <Mail className="h-4 w-4 flex-shrink-0" />
-                                  <span className="truncate">{appointment.email}</span>
-                                </div>
-                              </div>
-                              <div className="flex items-center gap-2">
-                                <Scissors className="h-4 w-4 flex-shrink-0" />
-                                <span>{appointment.services.join(", ")}</span>
-                              </div>
-                              {appointment.notes && (
-                                <div className="text-xs text-gray-500 mt-3 p-3 bg-gray-100 rounded-lg">
-                                  <strong>Notes:</strong> {appointment.notes}
-                                </div>
-                              )}
-                            </div>
+                      {/* Mobile-first layout with better information hierarchy */}
+                      <div className="space-y-4">
+                        {/* Header: Time, Name, and Duration on same line */}
+                        <div className="flex items-center justify-between gap-3 mb-2">
+                          <div className="flex items-center gap-3 flex-1 min-w-0">
+                            <span className="text-base sm:text-lg font-semibold text-gray-900 flex-shrink-0">{appointment.time}</span>
+                            <span className="text-gray-400 flex-shrink-0">•</span>
+                            <h3 className="font-semibold text-gray-900 text-base sm:text-lg truncate">{appointment.petName}</h3>
+                            <span className="text-gray-400 flex-shrink-0">•</span>
+                            <span className="text-xs sm:text-sm text-gray-500 flex-shrink-0">{appointment.duration}</span>
                           </div>
                         </div>
-                        <div className="flex items-center gap-2 flex-shrink-0">
+                        
+                        {/* Badges row */}
+                        <div className="flex items-center gap-2 flex-wrap mb-3">
+                          <Badge variant="outline" className="text-xs">
+                            {appointment.petType}
+                          </Badge>
+                          <Badge className={`${getStatusColor(appointment.status)} text-xs border`}>
+                            {getStatusIcon(appointment.status)}
+                            <span className="ml-1 capitalize">{appointment.status}</span>
+                          </Badge>
+                        </div>
+
+                        {/* Contact and Service Info */}
+                        <div className="space-y-2 text-sm text-gray-600">
+                          <div className="flex items-center gap-2">
+                            <Users className="h-4 w-4 flex-shrink-0" />
+                            <span>{appointment.ownerName}</span>
+                          </div>
+                          
+                          {/* Mobile: Stack contact info vertically, Desktop: horizontal */}
+                          <div className="space-y-2 sm:space-y-0 sm:flex sm:items-center sm:gap-6">
+                            <div className="flex items-center gap-2">
+                              <Phone className="h-4 w-4 flex-shrink-0" />
+                              <span>{appointment.phone}</span>
+                            </div>
+                            {/* Hide email on very small screens, show on sm+ */}
+                            <div className="hidden sm:flex items-center gap-2">
+                              <Mail className="h-4 w-4 flex-shrink-0" />
+                              <span className="truncate max-w-32 lg:max-w-none">{appointment.email}</span>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-start gap-2">
+                            <Scissors className="h-4 w-4 flex-shrink-0 mt-0.5" />
+                            <span className="flex-1">{appointment.services.join(", ")}</span>
+                          </div>
+                          
+                          {appointment.notes && (
+                            <div className="text-xs text-gray-500 mt-3 p-3 bg-gray-100 rounded-lg">
+                              <strong>Notes:</strong> {appointment.notes}
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Actions: Full width on mobile, right-aligned on desktop */}
+                        <div className="flex items-center gap-2 pt-2 border-t border-gray-100 sm:border-0 sm:pt-0">
+                          {/* Mobile: Show only essential actions, Desktop: Show all */}
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-all duration-200 hover:scale-105 active:scale-95 bg-transparent"
+                            className="flex-1 sm:flex-none border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-all duration-200"
                           >
-                            <Eye className="h-4 w-4" />
+                            <Eye className="h-4 w-4 sm:mr-0 mr-2" />
+                            <span className="sm:sr-only">View</span>
                           </Button>
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-all duration-200 hover:scale-105 active:scale-95 bg-transparent"
+                            className="flex-1 sm:flex-none border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-all duration-200"
                           >
-                            <Edit className="h-4 w-4" />
+                            <Edit className="h-4 w-4 sm:mr-0 mr-2" />
+                            <span className="sm:sr-only">Edit</span>
                           </Button>
                           <Button
                             variant="outline"
                             size="sm"
-                            className="border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-all duration-200 hover:scale-105 active:scale-95 bg-transparent"
+                            className="border border-gray-300 bg-white text-gray-700 hover:bg-gray-50 transition-all duration-200"
                           >
                             <MoreHorizontal className="h-4 w-4" />
+                            <span className="sr-only">More</span>
                           </Button>
                         </div>
                       </div>
@@ -358,7 +375,7 @@ export default function DashboardPage() {
             {/* Revenue Overview */}
             <Card className="animate-slide-in-left [animation-delay:600ms]">
               <CardHeader>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                   <div>
                     <CardTitle className="flex items-center gap-3 text-xl">
                       <TrendingUp className="h-5 w-5 text-green-600" />
@@ -367,7 +384,7 @@ export default function DashboardPage() {
                     <CardDescription className="mt-2">Track your business performance over time</CardDescription>
                   </div>
                   <Select value={revenueTimeframe} onValueChange={setRevenueTimeframe}>
-                    <SelectTrigger className="w-40">
+                    <SelectTrigger className="w-full sm:w-40">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
@@ -380,7 +397,8 @@ export default function DashboardPage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                {/* Mobile: Stack stats vertically, Desktop: 3-column grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
                   {[
                     { label: "Total Revenue", value: "€3,245", change: "+15% vs last period", color: "green" },
                     { label: "Appointments", value: "42", change: "+8% vs last period", color: "blue" },
@@ -388,11 +406,11 @@ export default function DashboardPage() {
                   ].map((stat, index) => (
                     <div
                       key={index}
-                      className={`text-center animate-scale-in`}
+                      className={`text-center p-4 sm:p-0 bg-gray-50 sm:bg-transparent rounded-lg sm:rounded-none animate-scale-in`}
                       style={{ animationDelay: `${800 + index * 100}ms` }}
                     >
                       <div
-                        className={`text-3xl font-bold mb-1 ${
+                        className={`text-2xl sm:text-3xl font-bold mb-1 ${
                           stat.color === "green"
                             ? "text-green-600"
                             : stat.color === "blue"
@@ -442,13 +460,14 @@ export default function DashboardPage() {
                 <CardDescription>Today's availability for new appointments</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 gap-3 mb-6">
+                {/* Mobile: 1 column for better touch targets, Desktop: 2 columns */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
                   {availableSlots.map((slot, index) => (
                     <Button
                       key={index}
                       variant={slot.available ? "outline" : "secondary"}
                       size="sm"
-                      className={`justify-center transition-all duration-300 ${
+                      className={`justify-center transition-all duration-300 text-sm py-3 sm:py-2 ${
                         slot.available
                           ? "hover:bg-green-50 hover:border-green-300 hover:text-green-700 border border-gray-300 bg-white text-gray-700 hover:bg-gray-50"
                           : "opacity-50 cursor-not-allowed"

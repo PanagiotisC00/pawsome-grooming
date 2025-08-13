@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /dashboard
-Disallow: /dashboard/
-Sitemap: https://www.pawsomegrooming.cy/sitemap.xml
+# Dashboard is accessible for demo purposes
+# Disallow: /dashboard
+# Disallow: /dashboard/
+Sitemap: https://pawsome-grooming.vercel.app/sitemap.xml
 

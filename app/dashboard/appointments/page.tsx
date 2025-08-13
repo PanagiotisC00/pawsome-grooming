@@ -5,7 +5,22 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Calendar, Filter, Search } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { 
+  Calendar, 
+  Filter, 
+  Search, 
+  Clock,
+  User,
+  Phone,
+  Mail,
+  PawPrint,
+  Euro,
+  CheckCircle,
+  AlertCircle,
+  XCircle,
+  Scissors
+} from "lucide-react"
 
 type Appointment = {
   id: string
@@ -52,25 +67,25 @@ export default function AdminAppointmentsPage() {
   const euro = (n: number) => `€${n}`
 
   return (
-    <div className="container px-4 sm:px-6 lg:px-8 py-8">
+    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 max-w-full w-full overflow-hidden">
       <Card>
         <CardHeader>
-          <div className="flex items-center justify-between gap-4">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
               <CardTitle className="flex items-center gap-2 text-xl">
                 <Calendar className="h-5 w-5 text-[#6e8b7c]" /> Appointments
               </CardTitle>
               <CardDescription>Browse, search and filter all upcoming bookings</CardDescription>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2">
               <Input
                 placeholder="Search name, pet, email..."
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                className="w-56"
+                className="w-full sm:w-56"
               />
               <Select value={day} onValueChange={setDay}>
-                <SelectTrigger className="w-32">
+                <SelectTrigger className="w-full sm:w-32">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -79,7 +94,7 @@ export default function AdminAppointmentsPage() {
                 </SelectContent>
               </Select>
               <Select value={status} onValueChange={setStatus}>
-                <SelectTrigger className="w-40">
+                <SelectTrigger className="w-full sm:w-40">
                   <SelectValue />
                 </SelectTrigger>
                 <SelectContent>
@@ -93,50 +108,123 @@ export default function AdminAppointmentsPage() {
             </div>
           </div>
         </CardHeader>
-        <CardContent>
+        <CardContent className="max-w-full overflow-hidden">
           <div className="mb-4 flex justify-end">
             <Button className="h-9">
               + New Appointment
             </Button>
           </div>
-          <div className="divide-y rounded-lg border">
+          {/* Modern appointment cards grid with proper overflow handling */}
+          <div className="grid gap-4 sm:gap-6 w-full max-w-full">
             {list.map((a) => (
-              <div key={a.id} className="grid grid-cols-1 md:grid-cols-[140px_1fr_auto] gap-3 p-4">
-                <div className="text-sm text-muted-foreground">
-                  <div className="font-medium text-foreground">{a.date}</div>
-                  <div>{a.time}</div>
-                </div>
-                <div>
-                  <div className="flex flex-wrap items-center gap-2 text-sm">
-                    <span className="font-medium">{a.client}</span>
-                    <span className="text-muted-foreground">• {a.pet}</span>
-                    <span className="text-muted-foreground">• {a.services.join(", ")}</span>
-                    <span
-                      className={`ml-2 rounded-full px-2 py-0.5 text-xs ring-1 ring-inset ${
-                        a.status === "confirmed"
-                          ? "bg-green-50 text-green-700 ring-green-200"
-                          : a.status === "pending"
-                          ? "bg-yellow-50 text-yellow-700 ring-yellow-200"
-                          : a.status === "completed"
-                          ? "bg-blue-50 text-blue-700 ring-blue-200"
-                          : "bg-red-50 text-red-700 ring-red-200"
-                      }`}
-                    >
-                      {a.status}
-                    </span>
+              <Card key={a.id} className="hover:shadow-md transition-all duration-300 border border-gray-200 bg-white w-full max-w-full overflow-hidden">
+                <CardContent className="p-4 sm:p-6">
+                  <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 w-full">
+                    
+                    {/* Left section: Date, Time, and Client Info */}
+                    <div className="flex-1 min-w-0 space-y-3">
+                      {/* Date, Time, and Status - Stack on mobile, inline on larger screens */}
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3">
+                        <div className="flex items-center gap-2 bg-blue-50 px-3 py-2 rounded-lg w-fit">
+                          <Calendar className="h-4 w-4 text-blue-600 flex-shrink-0" />
+                          <div className="text-sm font-semibold text-blue-900 whitespace-nowrap">{a.date}</div>
+                        </div>
+                        <div className="flex items-center gap-2 bg-purple-50 px-3 py-2 rounded-lg w-fit">
+                          <Clock className="h-4 w-4 text-purple-600 flex-shrink-0" />
+                          <div className="text-sm font-semibold text-purple-900 whitespace-nowrap">{a.time}</div>
+                        </div>
+                        
+                        {/* Status badge */}
+                        <Badge 
+                          className={`flex items-center gap-1 w-fit ${
+                            a.status === "confirmed"
+                              ? "bg-green-100 text-green-800 border-green-200 hover:bg-green-100"
+                              : a.status === "pending"
+                              ? "bg-yellow-100 text-yellow-800 border-yellow-200 hover:bg-yellow-100"
+                              : a.status === "completed"
+                              ? "bg-blue-100 text-blue-800 border-blue-200 hover:bg-blue-100"
+                              : "bg-red-100 text-red-800 border-red-200 hover:bg-red-100"
+                          }`}
+                        >
+                          {a.status === "confirmed" ? (
+                            <CheckCircle className="h-3 w-3 flex-shrink-0" />
+                          ) : a.status === "pending" ? (
+                            <AlertCircle className="h-3 w-3 flex-shrink-0" />
+                          ) : a.status === "completed" ? (
+                            <CheckCircle className="h-3 w-3 flex-shrink-0" />
+                          ) : (
+                            <XCircle className="h-3 w-3 flex-shrink-0" />
+                          )}
+                          <span className="capitalize font-medium whitespace-nowrap">{a.status}</span>
+                        </Badge>
+                      </div>
+
+                      {/* Client and Pet Info */}
+                      <div className="space-y-2">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <User className="h-4 w-4 text-gray-500 flex-shrink-0" />
+                          <span className="font-semibold text-gray-900 truncate">{a.client}</span>
+                          <span className="text-gray-400">•</span>
+                          <PawPrint className="h-4 w-4 text-gray-500 flex-shrink-0" />
+                          <span className="text-gray-700 truncate">{a.pet}</span>
+                          <span className="text-xs bg-gray-100 px-2 py-1 rounded-full text-gray-600 whitespace-nowrap">
+                            {a.breed}
+                          </span>
+                        </div>
+                        
+                        {/* Contact Info - Stack on mobile for better readability */}
+                        <div className="flex flex-col gap-1 text-sm text-gray-600">
+                          <div className="flex items-center gap-2 min-w-0">
+                            <Mail className="h-3 w-3 flex-shrink-0" />
+                            <span className="truncate">{a.email}</span>
+                          </div>
+                          <div className="flex items-center gap-2 min-w-0">
+                            <Phone className="h-3 w-3 flex-shrink-0" />
+                            <span className="truncate">{a.phone}</span>
+                          </div>
+                        </div>
+                        
+                        {/* Services */}
+                        <div className="flex items-start gap-2">
+                          <Scissors className="h-4 w-4 text-gray-500 mt-0.5 flex-shrink-0" />
+                          <div className="flex flex-wrap gap-1 min-w-0">
+                            {a.services.map((service, idx) => (
+                              <span key={idx} className="bg-[#6e8b7c]/10 text-[#6e8b7c] px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap">
+                                {service}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Right section: Price and Actions */}
+                    <div className="flex flex-col lg:items-end gap-3 lg:flex-shrink-0 lg:min-w-fit">
+                      <div className="flex items-center gap-2 bg-green-50 px-4 py-2 rounded-lg w-fit lg:ml-auto">
+                        <Euro className="h-5 w-5 text-green-600 flex-shrink-0" />
+                        <span className="text-2xl font-bold text-green-900 whitespace-nowrap">{euro(a.total)}</span>
+                      </div>
+                      
+                      <Button 
+                        size="sm" 
+                        className="bg-[#6e8b7c] hover:bg-[#5a7a6b] text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:shadow-md whitespace-nowrap w-fit lg:ml-auto"
+                      >
+                        Manage
+                      </Button>
+                    </div>
                   </div>
-                  <div className="text-xs text-muted-foreground mt-1">
-                    {a.email} • {a.phone}
-                  </div>
-                </div>
-                <div className="text-right">
-                  <div className="font-semibold">{euro(a.total)}</div>
-                  <Button variant="outline" size="sm" className="mt-2">Manage</Button>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             ))}
+            
             {list.length === 0 && (
-              <div className="p-6 text-center text-muted-foreground text-sm">No appointments found.</div>
+              <Card className="border-2 border-dashed border-gray-200">
+                <CardContent className="p-12 text-center">
+                  <Calendar className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                  <p className="text-gray-500 text-lg font-medium">No appointments found</p>
+                  <p className="text-gray-400 text-sm mt-1">Try adjusting your filters or search terms</p>
+                </CardContent>
+              </Card>
             )}
           </div>
         </CardContent>

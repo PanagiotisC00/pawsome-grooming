@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { Heart, Phone, Mail, MapPin, Clock } from "lucide-react"
 import { useTranslation } from "@/lib/i18n"
+import { usePathname } from "next/navigation"
 
 export function Footer() {
   const { t } = useTranslation()
@@ -81,20 +82,22 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-gray-800 mt-6 pt-4 text-center animate-fade-in [animation-delay:800ms]">
-          {/* Compact copyright with developer credit (updated to 2025) */}
-          <p className="text-gray-400 text-xs">
-            © 2025 Pawsome Grooming. All rights reserved. Developer:
-            {" "}
-            <a
-              href="https://panagiotis-webdev.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-white"
-            >
-              Panagiotis Chrysanthou
-            </a>
-            .
-          </p>
+          {/* Copyright and developer credit with line break */}
+          <div className="text-gray-400 text-xs space-y-1">
+            <p>© 2025 Pawsome Grooming. All rights reserved.</p>
+            <p>
+              Developer:
+              {" "}
+              <a
+                href="https://panagiotis-webdev.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white"
+              >
+                Panagiotis Chrysanthou
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

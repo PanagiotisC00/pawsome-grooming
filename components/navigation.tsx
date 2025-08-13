@@ -31,7 +31,7 @@ export function Navigation() {
   // Accent items use a light blue palette to stand out subtly
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 animate-slide-up">
+    <header className="sticky top-0 z-[70] w-full bg-white/95 backdrop-blur-md supports-[backdrop-filter]:bg-white/80 animate-slide-up">
       <div className="mx-auto w-full max-w-[120rem] flex h-16 items-center justify-between px-3 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center space-x-3 transition-transform duration-300 hover:scale-105 group">
           <img src="/logos/original_paw_website_logo.png" alt="Logo" className="h-6 w-6 rounded-sm object-contain" />
@@ -80,6 +80,7 @@ export function Navigation() {
         {/* Mobile Navigation */}
         <div className="flex items-center space-x-3 md:hidden">
           <LanguageSwitcher />
+          {!pathname?.startsWith('/dashboard') && (
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="transition-transform duration-300 hover:scale-105">
@@ -87,7 +88,7 @@ export function Navigation() {
                 <span className="sr-only">{safe("navigation.toggleMenu", "Toggle menu")}</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80">
+            <SheetContent side="right" className="w-80 z-[80]">
               <SheetHeader className="pt-4 pb-0 sticky top-0 z-10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
                 <SheetTitle className="text-base font-semibold">{safe("brandName", "Pawsome Grooming")}</SheetTitle>
                 <SheetDescription className="sr-only">{safe("navigation.toggleMenu", "Toggle menu")}</SheetDescription>
@@ -131,6 +132,7 @@ export function Navigation() {
               </div>
             </SheetContent>
           </Sheet>
+          )}
         </div>
       </div>
     </header>

@@ -3,7 +3,8 @@
 import { useEffect, useMemo, useState } from "react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
-import { Scissors } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Scissors, Plus } from "lucide-react"
 
 type Band = { label: string; price: number }
 type Service = { id: string; title: string; duration: string; bands: Band[] }
@@ -35,15 +36,20 @@ export default function AdminServicesPage() {
             </CardTitle>
             <CardDescription>Manage available services and Euro pricing</CardDescription>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-2">
             <Input
               placeholder="Search services..."
               value={query}
               onChange={(e) => setQuery(e.target.value)}
-              className="w-full md:w-72"
+              className="flex-1 min-w-0 sm:max-w-80"
             />
-            {/* Hoverable CTA for adding a service */}
-            <button className="h-9 rounded-md px-4 text-sm font-medium bg-primary text-primary-foreground transition-all duration-200 hover:bg-primary/90 active:scale-95">New Service</button>
+            {/* Modern CTA for adding a service */}
+            <Button 
+              className="bg-[#6e8b7c] hover:bg-[#5a7a6b] text-white px-6 py-2 rounded-lg font-medium transition-all duration-200 hover:shadow-md hover:scale-105 active:scale-95 whitespace-nowrap flex-shrink-0"
+            >
+              <Plus className="h-4 w-4 mr-2" />
+              New Service
+            </Button>
           </div>
         </CardHeader>
         <CardContent>

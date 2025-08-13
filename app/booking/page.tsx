@@ -180,26 +180,26 @@ export default function BookingPage() {
     <div className="py-12 px-4 sm:px-6 lg:px-8 mx-auto w-full max-w-[120rem]">
       {/* Single bubble title to match Home/Services styling */}
       <div className="flex flex-col items-center gap-4 mb-12 text-center">
-        <div className="inline-block rounded-full bg-secondary dark:bg-white/10 backdrop-blur-md ring-1 ring-border/60 shadow-[0_1px_2px_rgba(0,0,0,0.06)] px-5 md:px-6 py-3">
-          <h1 className="font-[var(--font-display,_inherit)] font-extrabold tracking-tight leading-none text-[clamp(1.15rem,1.8vw,2rem)] text-foreground">
+        <div className="inline-block rounded-full bg-secondary dark:bg-white/10 backdrop-blur-md ring-1 ring-border/60 shadow-[0_1px_2px_rgba(0,0,0,0.06)] px-5 md:px-6 py-3 max-w-full">
+          <h1 className="font-[var(--font-display,_inherit)] font-extrabold tracking-tight leading-tight text-[clamp(1.15rem,1.8vw,2rem)] text-foreground text-center break-words">
             {safe("booking.title", "Schedule Your Pet's Grooming")}
           </h1>
         </div>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">{safe("booking.description", "Fill out the form below to book an appointment for your furry friend. We'll contact you to confirm the details.")}</p>
+        <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed px-4">{safe("booking.description", "Fill out the form below to book an appointment for your furry friend. We'll contact you to confirm the details.")}</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-6 md:gap-8">
         <div>
           <Card>
             <CardHeader>
-              <CardTitle>{safe("booking.form.title", "Booking Information")}</CardTitle>
-              <CardDescription>{safe("booking.form.description", "Please provide your details and select the services you'd like for your pet.")}</CardDescription>
+              <CardTitle className="break-words">{safe("booking.form.title", "Booking Information")}</CardTitle>
+              <CardDescription className="leading-relaxed">{safe("booking.form.description", "Please provide your details and select the services you'd like for your pet.")}</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Owner Information */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold text-primary">{safe("booking.form.ownerInfo", "Owner Information")}</h3>
+                  <h3 className="text-lg font-semibold text-primary break-words">{safe("booking.form.ownerInfo", "Owner Information")}</h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="ownerName">{safe("booking.form.yourName", "Your Name")} *</Label>
@@ -235,7 +235,7 @@ export default function BookingPage() {
 
                 {/* Pet Information */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold text-primary">{safe("booking.form.petInfo", "Pet Information")}</h3>
+                  <h3 className="text-lg font-semibold text-primary break-words">{safe("booking.form.petInfo", "Pet Information")}</h3>
                    <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                        <Label htmlFor="petName">{safe("booking.form.petName", "Pet Name")} *</Label>
@@ -285,14 +285,14 @@ export default function BookingPage() {
 
                 {/* Services - mirrored from /services with weight-based pricing */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold text-primary">{safe("booking.form.selectServices", "Select Services")}</h3>
+                  <h3 className="text-lg font-semibold text-primary break-words">{safe("booking.form.selectServices", "Select Services")}</h3>
 
                   {/* Weight selector to compute prices consistently with /services */}
                   {/* Simplified, toned-down weight selector */}
-                  <div className="flex items-center gap-2">
-                    <span className="text-sm text-muted-foreground">{safe("services.weight", "Pet weight")}</span>
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                    <span className="text-sm text-muted-foreground flex-shrink-0">{safe("services.weight", "Pet weight")}</span>
                     <Select value={String(weightKg)} onValueChange={(v) => setWeightKg(parseInt(v))}>
-                      <SelectTrigger className="w-44">
+                      <SelectTrigger className="w-full sm:w-48 min-w-0">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -310,16 +310,23 @@ export default function BookingPage() {
                       const band = priceForWeight(service.bands, weightKg)
                       const selected = selectedServices.includes(service.id)
                       return (
-                        <div key={service.id} className="flex items-center gap-3">
+                        <div key={service.id} className="flex items-start gap-3">
                           <Checkbox
                             id={service.id}
                             checked={selected}
                             onCheckedChange={(checked) => handleServiceChange(service.id, checked as boolean)}
+                            className="mt-0.5 flex-shrink-0"
                           />
-                          <Label htmlFor={service.id} className="flex-1 cursor-pointer">
-                            <div className="flex items-center gap-2">
-                              <span>{translateServiceTitle(service.id, service.title)}</span>
-                              <span className="text-[#6e8b7c] font-medium">€{band.price}</span>
+                          <Label htmlFor={service.id} className="flex-1 cursor-pointer min-w-0">
+                            <div className="space-y-1">
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span className="text-sm leading-relaxed break-words">
+                                  {translateServiceTitle(service.id, service.title)}
+                                </span>
+                                <span className="text-[#6e8b7c] font-medium text-sm">
+                                  €{band.price}
+                                </span>
+                              </div>
                             </div>
                           </Label>
                         </div>
@@ -335,7 +342,7 @@ export default function BookingPage() {
 
                 {/* Date and Time */}
                 <div className="space-y-4">
-                  <h3 className="text-lg font-semibold text-primary">{safe("booking.form.dateTime", "Preferred Date & Time")}</h3>
+                  <h3 className="text-lg font-semibold text-primary break-words">{safe("booking.form.dateTime", "Preferred Date & Time")}</h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
                        <Label htmlFor="date">{safe("booking.form.preferredDate", "Preferred Date")} *</Label>
@@ -379,7 +386,7 @@ export default function BookingPage() {
                   />
                 </div>
 
-                <Button type="submit" size="lg" className="w-full">
+                <Button type="submit" size="lg" className="w-full whitespace-nowrap">
                   {safe("booking.form.submitBooking", "Submit Booking Request")}
                 </Button>
               </form>
@@ -391,10 +398,10 @@ export default function BookingPage() {
           {/* Compact help panel with centered CTA */}
           <Card className="bg-secondary">
             <CardHeader className="pb-2 text-center">
-              <CardTitle className="text-base">{safe("booking.help.title", "Have a question?")}</CardTitle>
+              <CardTitle className="text-base break-words">{safe("booking.help.title", "Have a question?")}</CardTitle>
             </CardHeader>
             <CardContent className="pt-0 flex justify-center">
-              <Button asChild size="lg" className="w-full sm:w-auto">
+              <Button asChild size="lg" className="w-full sm:w-auto whitespace-nowrap">
                 <Link href="/contact">{safe("booking.help.contactUs", "Contact Us")}</Link>
               </Button>
             </CardContent>
